@@ -1,0 +1,56 @@
+.containerHeader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    background-color: #E54B4B;
+    color: white;
+
+    h1{
+        cursor: pointer;
+    }
+
+    .iconCart{
+
+        display: flex;
+
+        h2{
+            position: absolute;
+            margin: -10px 0px 0px 20px;
+            font-size: 15px;
+            background-color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            text-align: center;
+            color: #E54B4B;
+        }
+    }
+    
+
+    input {
+        width: 200px;
+        padding: 8px;
+        border-radius: 7px;
+        border: none;
+        background-color: rgb(255, 255, 255);
+        margin-left: 40px;
+        margin-right: 20px;
+    }
+}
+
+@media(max-width: 800px){
+    .containerHeader{
+        flex-direction: column;
+        height: 150px;
+
+        .iconCart{
+            margin-top: 20px;
+        }
+
+        input{
+            margin-left: 0px;
+        }
+    }
+}
