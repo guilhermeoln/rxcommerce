@@ -4,7 +4,7 @@ import style from './Home.module.scss';
 
 export default function Home() {
 
-    const products= useSelector(state => state.products)
+    const products = useSelector(state => state.products)
 
 
     return (

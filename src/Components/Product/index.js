@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
 import style from './Product.module.scss';
-import { addToCart } from '../../store/reducers/cart';
+import { addToCart, modifyQuantity } from '../../store/reducers/cart';
 import { FiMinus, FiPlus} from 'react-icons/fi';
 
 
 export default function Product(props) {
 
-    const { id, image, name, description, price, quantify } = props;
+    const { id, image, name, description, price, quantity } = props;
 
     const cart = useSelector(state => state.cart);
 
@@ -15,7 +15,7 @@ export default function Product(props) {
     const dispatch = useDispatch();
 
     return (
-        <div className={style.containerProduct}>
+        <div className={style.containerProduct} key={id}>
             <img src={image} />
             <h2>{name}</h2>
             <p>{description}</p>
@@ -26,11 +26,17 @@ export default function Product(props) {
                     <FiMinus 
                         color='red'
                         cursor="pointer"
+                        onClick={ () => {
+                            if(quantity >= 1){
+                                dispatch(modifyQuantity({id, quantity: -1}))}
+                            }
+                        }
                     />
-                    <p>{quantify}</p>
+                    <p>{quantity}</p>
                     <FiPlus 
                         color='red'
                         cursor="pointer"
+                        onClick={ () => dispatch(modifyQuantity({id, quantity: +1}))}
                     />
                 </div>
                 :
